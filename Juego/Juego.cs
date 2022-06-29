@@ -15,7 +15,7 @@ namespace Juego
         public Juego(ITipoCartas tipoCartas, List<Jugador> jugadoresParam)
         {
             baraja = new Baraja(tipoCartas);
-            jugadores.AddRange(jugadoresParam);
+            jugadores = jugadoresParam;
             darCartas(jugadores);
         }
 

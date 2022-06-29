@@ -14,16 +14,16 @@ namespace Comprobaciones
         public string[] ganadores(List<Jugador> jugadores)
         {
             List<Jugador> cartaAlta = new List<Jugador>();
-            cartaAlta.AddRange(jugadores);
+            cartaAlta=jugadores;
 
             List<Jugador> cartaBaja = new List<Jugador>();
-            cartaBaja.AddRange(jugadores);
+            cartaBaja = jugadores;
 
             List<Jugador> juego = new List<Jugador>();
-            juego.AddRange(jugadores);
+            juego = jugadores;
 
             List<Jugador> pares = new List<Jugador>();
-            pares.AddRange(jugadores);
+            pares = jugadores;
 
             return new string[] {GanadorCartaAlta(cartaAlta,0), GanadorCartaBaja(cartaBaja, cartaBaja.Count - 1), GanadorJuego(juego), GanadorParejas(pares) };
         }

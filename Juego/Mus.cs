@@ -15,15 +15,15 @@ namespace Juego
         static int contador = 0;
         public Mus(ITipoCartas tipoCartas, List<Jugador> jugadoresParam) : base(tipoCartas, jugadoresParam)
         {
-            this.baraja = new Baraja(tipoCartas);
-            this.jugadores.AddRange(jugadoresParam);
+            base.baraja = new Baraja(tipoCartas);
+            base.jugadores = jugadoresParam;
             darCartas(jugadores);
         }
 
         public override string[] ComprobarGanadores()
         {
             ComprobacionesMUS comprobaciones = new ComprobacionesMUS();
-            return comprobaciones.ganadores(jugadores);
+            return comprobaciones.ganadores(base.jugadores);
         }
 
         public override void darCartas(List<Jugador> jugadores)

@@ -10,25 +10,21 @@ namespace Barajas
     {
         public CartasTipo(string[] palo, int[] numeros)
         {
-            this.Palos = palo;
-            this.Numeros = numeros;
+            Palos = new string[palo.Length];
+            Numeros = new int[numeros.Length];
+            Palos = palo;
+            Numeros = numeros;
         }
 
         public string[] Palos
         {
             get => Palos;
-            set
-            {
-                Palos = value;
-            }
+            set => Palos = value;
         }
         public int[] Numeros
         {
             get => Numeros;
-            set
-            {
-                Numeros = value;
-            }
+            set => Numeros = value;
         }
     }
 }
