@@ -8,55 +8,37 @@ using Barajas;
 
 namespace Comprobaciones
 {
-    public class ComprobacionesMUS: IComprobacion
+    public class ComprobacionesMUS
     {
-
-        public string[] ganadores(List<Jugador> jugadores)
+        public string GanadorCartaAlta(List<Jugador> listaJugadoresCartaAlta, int index)
         {
-            List<Jugador> cartaAlta = new List<Jugador>();
-            cartaAlta=jugadores;
-
-            List<Jugador> cartaBaja = new List<Jugador>();
-            cartaBaja = jugadores;
-
-            List<Jugador> juego = new List<Jugador>();
-            juego = jugadores;
-
-            List<Jugador> pares = new List<Jugador>();
-            pares = jugadores;
-
-            return new string[] {GanadorCartaAlta(cartaAlta,0), GanadorCartaBaja(cartaBaja, cartaBaja.Count - 1), GanadorJuego(juego), GanadorParejas(pares) };
-        }
-
-        public string GanadorCartaAlta(List<Jugador> jugadores, int index)
-        {
-            (bool respuesta, string ganador) cartaAltaObtenida = CartaMasAlta(jugadores, index);
+            (bool respuesta, string ganador) cartaAltaObtenida = CartaMasAlta(listaJugadoresCartaAlta, index);
 
             if (cartaAltaObtenida.respuesta) return cartaAltaObtenida.ganador;
 
-            jugadores = DescartarJugadores(jugadores, index);
+            listaJugadoresCartaAlta = DescartarJugadoresCartaAlta(listaJugadoresCartaAlta, index);
 
             if (index == 3)
             {
-                (bool respuesta, string ganador) ganador = GanadorPorMano(jugadores, index, 0);
+                (bool respuesta, string ganador) ganador = GanadorPorMano(listaJugadoresCartaAlta, index, 0);
                 if (ganador.respuesta) return ganador.ganador;
             }
-            return GanadorCartaAlta(jugadores, index + 1);
+            return GanadorCartaAlta(listaJugadoresCartaAlta, index + 1);
         }
-        public string GanadorCartaBaja(List<Jugador> jugadores, int index)
+        public string GanadorCartaBaja(List<Jugador> listaJugadoresCartaBaja, int index)
         {
-            (bool respuesta, string ganador) cartaBajaObtenida = CartaMasBaja(jugadores, index);
+            (bool respuesta, string ganador) cartaBajaObtenida = CartaMasBaja(listaJugadoresCartaBaja, index);
 
             if (cartaBajaObtenida.respuesta) return cartaBajaObtenida.ganador;
 
-            jugadores = DescartarJugadores(jugadores, index);
+            listaJugadoresCartaBaja = DescartarJugadoresCartaBaja(listaJugadoresCartaBaja, index);
 
             if (index == 0)
             {
-                (bool respuesta, string ganador) ganador = GanadorPorMano(jugadores, index, 0);
+                (bool respuesta, string ganador) ganador = GanadorPorMano(listaJugadoresCartaBaja, index, 0);
                 if (ganador.respuesta) return ganador.ganador;
             }
-            return GanadorCartaAlta(jugadores, index - 1);
+            return GanadorCartaBaja(listaJugadoresCartaBaja, index - 1);
         }
         public string GanadorJuego(List<Jugador> jugadores)
         {
@@ -116,7 +98,7 @@ namespace Comprobaciones
         }
         private (bool respuesta, string ganador) CartaMasBaja(List<Jugador> jugadores, int index)
         {
-            int min = int.MaxValue;
+            int min = 13;
             List<Jugador> ganadores = new List<Jugador>();
 
             foreach (Jugador jugadorx in jugadores)
@@ -141,24 +123,48 @@ namespace Comprobaciones
             }
             return (false, "Null");
         }
-        private List<Jugador> DescartarJugadores(List<Jugador> jugadores, int index)
+        private List<Jugador> DescartarJugadoresCartaAlta(List<Jugador> listaJugadoresCartaAlta, int index)
         {
             Jugador vacio = new Jugador("Null");
             vacio.cartas = new List<Carta>() { new Carta("n", 0), new Carta("n", 0), new Carta("n", 0), new Carta("n", 0) };
 
-            int max = jugadores[0].cartas[index].Numero;
+            int max = listaJugadoresCartaAlta[0].cartas[index].Numero;
+
+            for (int i = 0; i < listaJugadoresCartaAlta.Count; i++)
+            {
+                if (listaJugadoresCartaAlta[i].cartas[index].Numero > max)
+                {
+                    max = listaJugadoresCartaAlta[i].cartas[index].Numero;
+                }
+            }
+
+            for (int i = 0; i < listaJugadoresCartaAlta.Count; i++)
+            {
+                if (listaJugadoresCartaAlta[i].cartas[index].Numero < max)
+                {
+                    listaJugadoresCartaAlta[i] = vacio;
+                }
+            }
+            return listaJugadoresCartaAlta;
+        }
+        private List<Jugador> DescartarJugadoresCartaBaja(List<Jugador> jugadores, int index)
+        {
+            Jugador vacio = new Jugador("Null");
+            vacio.cartas = new List<Carta>() { new Carta("n", 13), new Carta("n", 13), new Carta("n", 13), new Carta("n", 13) };
+
+            int min = jugadores[0].cartas[index].Numero;
 
             for (int i = 0; i < jugadores.Count; i++)
             {
-                if (jugadores[i].cartas[index].Numero > max)
+                if (jugadores[i].cartas[index].Numero < min)
                 {
-                    max = jugadores[i].cartas[index].Numero;
+                    min = jugadores[i].cartas[index].Numero;
                 }
             }
 
             for (int i = 0; i < jugadores.Count; i++)
             {
-                if (jugadores[i].cartas[index].Numero < max)
+                if (jugadores[i].cartas[index].Numero > min)
                 {
                     jugadores[i] = vacio;
                 }
@@ -196,7 +202,7 @@ namespace Comprobaciones
         {
             foreach (int puntos in puntosJugadores)
             {
-                if (puntos > 30)
+                if ((puntos > 30 && puntos != 38 && puntos != 39 && puntos <= 40))
                 {
                     return false;
                 }
@@ -233,7 +239,7 @@ namespace Comprobaciones
         }
         private int GanadorJuegoMasDe30(int[] puntosJugadores)
         {
-            int[] jugadas = { 31, 32, 40, 37, 36, 35, 34, 33 };
+            int[] jugadas = { 31, 32, 40, 37, 36, 35, 34, 33};
 
             foreach (int puntos in jugadas)
             {

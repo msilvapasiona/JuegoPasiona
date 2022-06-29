@@ -10,9 +10,9 @@ namespace Barajas
     {
         public List<Carta> listaCartas= new List<Carta>();
 
-        public Baraja(ITipoCartas estiloCarta)
+        public Baraja(string[] palos, int[] numeros)
         {
-            CrearBaraja(estiloCarta.Palos, estiloCarta.Numeros);
+            CrearBaraja(palos, numeros);
             Barajar();
         }
 

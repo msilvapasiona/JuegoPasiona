@@ -12,9 +12,9 @@ namespace Juego
     {
         public Baraja baraja { get; set; }
         public List<Jugador> jugadores { get; set; }
-        public Juego(ITipoCartas tipoCartas, List<Jugador> jugadoresParam)
+        public Juego(string[] palos, int[] numeros, List<Jugador> jugadoresParam)
         {
-            baraja = new Baraja(tipoCartas);
+            baraja = new Baraja(palos, numeros);
             jugadores = jugadoresParam;
             darCartas(jugadores);
         }
