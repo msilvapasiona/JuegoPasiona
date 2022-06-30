@@ -10,16 +10,20 @@ namespace Juego
 {
     public abstract class Juego
     {
+        private static string[] palos;
+        private static int[] numeros;
+        private static CartasTipo cartas;
         public Baraja baraja { get; set; }
         public List<Jugador> jugadores { get; set; }
-        public Juego(string[] palos, int[] numeros, List<Jugador> jugadoresParam)
+        public Juego(ITipoCartas cartas, List<Jugador> jugadoresParam)
         {
-            baraja = new Baraja(palos, numeros);
+            baraja = new Baraja(cartas);
             jugadores = jugadoresParam;
             darCartas(jugadores);
         }
 
         public abstract void darCartas(List<Jugador> jugadores);
         public abstract string[] ComprobarGanadores();
+        public abstract void MostrarCartasJugadores();
     }
 }

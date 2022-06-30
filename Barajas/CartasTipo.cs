@@ -18,13 +18,13 @@ namespace Barajas
 
         public string[] Palos
         {
-            get => Palos;
-            set => Palos = value;
+            get;
+            set;
         }
         public int[] Numeros
         {
-            get => Numeros;
-            set => Numeros = value;
+            get;
+            set;
         }
     }
 }

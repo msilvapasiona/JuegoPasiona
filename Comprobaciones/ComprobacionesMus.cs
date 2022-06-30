@@ -8,9 +8,22 @@ using Barajas;
 
 namespace Comprobaciones
 {
-    public class ComprobacionesMUS
+    public class ComprobacionesMUS : IComprobacion
     {
-        public string GanadorCartaAlta(List<Jugador> listaJugadoresCartaAlta, int index)
+        public string[] ganadores(List<Jugador> jugadores)
+        {
+            List<Jugador> cartaAlta = new List<Jugador>(jugadores);
+
+            List<Jugador> cartaBaja = new List<Jugador>(jugadores);
+
+            List<Jugador> juego = new List<Jugador>(jugadores);
+
+            List<Jugador> pares = new List<Jugador>(jugadores);
+
+            return new string[] {$"Ganador Carta Alta: {GanadorCartaAlta(cartaAlta, 0)}", $"Ganador Carta Baja: {GanadorCartaBaja(cartaBaja, 3)}", $"Ganador Juego: {GanadorJuego(juego)}", $"Ganador Parejas: {GanadorParejas(pares)}"  };
+        }
+
+        private string GanadorCartaAlta(List<Jugador> listaJugadoresCartaAlta, int index)
         {
             (bool respuesta, string ganador) cartaAltaObtenida = CartaMasAlta(listaJugadoresCartaAlta, index);
 
@@ -25,7 +38,7 @@ namespace Comprobaciones
             }
             return GanadorCartaAlta(listaJugadoresCartaAlta, index + 1);
         }
-        public string GanadorCartaBaja(List<Jugador> listaJugadoresCartaBaja, int index)
+        private string GanadorCartaBaja(List<Jugador> listaJugadoresCartaBaja, int index)
         {
             (bool respuesta, string ganador) cartaBajaObtenida = CartaMasBaja(listaJugadoresCartaBaja, index);
 
@@ -40,7 +53,7 @@ namespace Comprobaciones
             }
             return GanadorCartaBaja(listaJugadoresCartaBaja, index - 1);
         }
-        public string GanadorJuego(List<Jugador> jugadores)
+        private string GanadorJuego(List<Jugador> jugadores)
         {
             int[] puntosJugadores = RellenarPuntosJugadores(jugadores);
 
@@ -53,9 +66,9 @@ namespace Comprobaciones
                 return jugadores[GanadorJuegoMasDe30(puntosJugadores)].Nombre;
             }
         }
-        public string GanadorParejas(List<Jugador> jugadores)
+        private string GanadorParejas(List<Jugador> jugadores)
         {
-            (bool respuesta, string nombre) ganador = ComprobacionGanadores(jugadores,4);
+            (bool respuesta, string nombre) ganador = ComprobacionGanadores(jugadores, 4);
             if (ganador.respuesta) return ganador.nombre + ", doble pareja.";
 
             ganador = ComprobacionGanadores(jugadores, 3);
@@ -239,7 +252,7 @@ namespace Comprobaciones
         }
         private int GanadorJuegoMasDe30(int[] puntosJugadores)
         {
-            int[] jugadas = { 31, 32, 40, 37, 36, 35, 34, 33};
+            int[] jugadas = { 31, 32, 40, 37, 36, 35, 34, 33 };
 
             foreach (int puntos in jugadas)
             {
@@ -334,13 +347,13 @@ namespace Comprobaciones
 
             for (int i = 0; i < parejasJugadores.Length; i++)
             {
-                parejasJugadores[i] = ComprobacionParejas(jugadores[i],parejaFormada);
+                parejasJugadores[i] = ComprobacionParejas(jugadores[i], parejaFormada);
             }
             int max = -1;
 
             foreach (var item in parejasJugadores)
             {
-                if (item.respuesta && item.valorMaximo>max)
+                if (item.respuesta && item.valorMaximo > max)
                 {
                     max = item.valorMaximo;
                 }
@@ -353,7 +366,7 @@ namespace Comprobaciones
                     return (true, jugadores[i].Nombre);
                 }
             }
-            return (false,"null");
+            return (false, "null");
         }
     }
 }
