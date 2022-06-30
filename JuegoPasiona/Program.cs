@@ -3,10 +3,38 @@ using Juego;
 using Jugadores;
 using Comprobaciones;
 
-List<Jugador> listaJugadores = new List<Jugador>() { new Jugador("Manuel"), new Jugador("Maria"), new Jugador("Lole"), new Jugador("Pedro") };
+Console.WriteLine("-------------------------------MUS---------------------------------------");
 
-Mus mus = new Mus(listaJugadores);
+List<Jugador> listaJugadoresMus = new List<Jugador>() { new Jugador("Manuel"), new Jugador("Maria"), new Jugador("Lole"), new Jugador("Pedro")};
 
-mus.MostrarCartasJugadores();
+try
+{
+    Mus mus = new Mus(listaJugadoresMus);
 
-Console.WriteLine(String.Join("\n", mus.ComprobarGanadores()));
+    mus.MostrarCartasJugadores();
+
+    Console.WriteLine(String.Join("\n", mus.ComprobarGanadores()));
+}
+catch (Exception e)
+{
+    Console.WriteLine(e.Message);
+}
+
+
+Console.WriteLine("-------------------------------POKER---------------------------------------");
+
+List<Jugador> listaJugadoresPoker = new List<Jugador>() { new Jugador("Manuel"), new Jugador("Maria"), new Jugador("Lole"), new Jugador("Pedro")};
+
+try
+{
+    Poker poker = new Poker(listaJugadoresPoker);
+
+    poker.MostrarCartasJugadores();
+
+    Console.WriteLine(String.Join("\n", poker.ComprobarGanadores()));
+}
+catch (Exception e)
+{
+    Console.WriteLine(e.Message);
+}
+

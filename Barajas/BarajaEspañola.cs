@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Barajas
 {
-    public class BarajaEspañola : ITipoCartas
+    public class BarajaEspañola : IPalosNumeros
     {
         public BarajaEspañola()
         {

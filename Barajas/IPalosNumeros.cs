@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Barajas
 {
-    public interface ITipoCartas
+    public interface IPalosNumeros
     {
         public string[] Palos { get; set; }
         public int[] Numeros { get; set; }
