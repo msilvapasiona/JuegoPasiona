@@ -11,7 +11,7 @@ namespace Comprobaciones
     {
         public string[] ganadores(List<Jugador> jugadores)
         {
-            return new string[] {"Pa ganador mi culo."};
+            return new string[] {"Ganador Soy."};
         }
 
     }
