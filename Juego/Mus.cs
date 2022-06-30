@@ -13,12 +13,9 @@ namespace Juego
     public class Mus : Juego
     {
         static int contador = 0;
-        private static string[] palos = new string[] { "oros", "copas", "bastos", "espadas" };
-        private static int[] numeros = new int[] { 1, 2, 3, 4, 5, 6, 7, 10, 11, 12 };
-        private static CartasTipo cartas = new CartasTipo(palos, numeros);
-        public Mus(List<Jugador> jugadoresParam) : base(cartas, jugadoresParam)
+        public Mus(List<Jugador> jugadoresParam) : base(jugadoresParam)
         {
-            baraja = new Baraja(cartas);
+            baraja = new Baraja(new BarajaEspañola());
             jugadores = jugadoresParam;
             darCartas(jugadores);
         }

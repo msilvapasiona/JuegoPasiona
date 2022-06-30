@@ -6,14 +6,12 @@ using System.Threading.Tasks;
 
 namespace Barajas
 {
-    public class CartasTipo : ITipoCartas
+    public class BarajaEspañola : ITipoCartas
     {
-        public CartasTipo(string[] palo, int[] numeros)
+        public BarajaEspañola()
         {
-            Palos = new string[palo.Length];
-            Numeros = new int[numeros.Length];
-            Palos = palo;
-            Numeros = numeros;
+            Palos = new string[] { "oros", "copas", "bastos", "espadas" };
+            Numeros = new int[] { 1, 2, 3, 4, 5, 6, 7, 10, 11, 12 };
         }
 
         public string[] Palos
