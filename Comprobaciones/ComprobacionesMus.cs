@@ -234,7 +234,7 @@ namespace Comprobaciones
 
             foreach (int punto in puntosJugadores)
             {
-                if (punto < min)
+                if (punto < min && punto >= 0 )
                 {
                     min = punto;
                 }
