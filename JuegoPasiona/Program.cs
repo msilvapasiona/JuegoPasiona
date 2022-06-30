@@ -9,6 +9,4 @@ Mus mus = new Mus(listaJugadores);
 
 mus.MostrarCartasJugadores();
 
-string[] ganadores = mus.ComprobarGanadores();
-
-Console.WriteLine(String.Join("\n", ganadores));
+Console.WriteLine(String.Join("\n", mus.ComprobarGanadores()));
