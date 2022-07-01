@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +8,10 @@ namespace Barajas
 {
     public class BarajaFrancesa:IPalosNumeros
     {
-        IDictionary<string, int> numeros = new Dictionary<string, int>();
-
         public BarajaFrancesa()
         {
             Palos = new string[] { "picas", "treboles", "corazones", "diamantes"};
-            Numeros = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
+            Numeros = new int[] {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
         }
         
         public string[] Palos
