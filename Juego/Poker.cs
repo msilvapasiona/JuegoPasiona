@@ -36,30 +36,30 @@ namespace Juego
 
         public override void darCartas(List<Jugador> jugadores)
         {
-            Carta auxiliar = new Carta("picas",14);
+            Carta auxiliar = new Carta("corazones",14);
             jugadores[0].cartas.Add(auxiliar);
-            auxiliar = new Carta("picas", 12);
-            jugadores[0].cartas.Add(auxiliar);
-
-            auxiliar = new Carta("picas", 11);
+            auxiliar = new Carta("picas", 14);
             jugadores[0].cartas.Add(auxiliar);
 
-            auxiliar = new Carta("picas", 10);
+            auxiliar = new Carta("diamantes", 14);
+            jugadores[0].cartas.Add(auxiliar);
+
+            auxiliar = new Carta("treboles", 14);
             jugadores[0].cartas.Add(auxiliar);
 
             auxiliar = new Carta("picas", 7);
             jugadores[0].cartas.Add(auxiliar);
 
 
+            auxiliar = new Carta("corazones", 14);
+            jugadores[1].cartas.Add(auxiliar);
             auxiliar = new Carta("picas", 13);
             jugadores[1].cartas.Add(auxiliar);
-            auxiliar = new Carta("picas", 12);
+
+            auxiliar = new Carta("diamantes", 14);
             jugadores[1].cartas.Add(auxiliar);
 
-            auxiliar = new Carta("picas", 11);
-            jugadores[1].cartas.Add(auxiliar);
-
-            auxiliar = new Carta("picas", 10);
+            auxiliar = new Carta("treboles", 14);
             jugadores[1].cartas.Add(auxiliar);
 
             auxiliar = new Carta("picas", 2);

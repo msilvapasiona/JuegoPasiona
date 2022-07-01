@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Barajas\Barajas.csproj" />
-    <ProjectReference Include="..\Extensiones\Extensiones.csproj" />
     <ProjectReference Include="..\Jugadores\Jugadores.csproj" />
   </ItemGroup>
 

@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JuegoPasiona", "JuegoPasiona\JuegoPasiona.csproj", "{310E6497-6B9A-4B79-98D7-C74CC73EF9FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JuegoPasiona", "JuegoPasiona\JuegoPasiona.csproj", "{310E6497-6B9A-4B79-98D7-C74CC73EF9FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barajas", "Barajas\Barajas.csproj", "{222504FB-37C5-4BDE-9158-E6A5D6F0DF5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Barajas", "Barajas\Barajas.csproj", "{222504FB-37C5-4BDE-9158-E6A5D6F0DF5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comprobaciones", "Comprobaciones\Comprobaciones.csproj", "{1F2F9B7E-CEF3-435D-90D9-D5ECB1C641A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Comprobaciones", "Comprobaciones\Comprobaciones.csproj", "{1F2F9B7E-CEF3-435D-90D9-D5ECB1C641A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Juego", "Juego\Juego.csproj", "{15262160-1E20-4352-B745-33B4A644DA00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Juego", "Juego\Juego.csproj", "{15262160-1E20-4352-B745-33B4A644DA00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jugadores", "Jugadores\Jugadores.csproj", "{30619CB4-7EF8-4CC9-9FB3-0FD6B853A956}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jugadores", "Jugadores\Jugadores.csproj", "{30619CB4-7EF8-4CC9-9FB3-0FD6B853A956}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensiones", "Extensiones\Extensiones.csproj", "{D0A8721D-6705-4E42-AB23-40EF7EC104EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{30619CB4-7EF8-4CC9-9FB3-0FD6B853A956}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30619CB4-7EF8-4CC9-9FB3-0FD6B853A956}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30619CB4-7EF8-4CC9-9FB3-0FD6B853A956}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0A8721D-6705-4E42-AB23-40EF7EC104EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0A8721D-6705-4E42-AB23-40EF7EC104EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0A8721D-6705-4E42-AB23-40EF7EC104EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0A8721D-6705-4E42-AB23-40EF7EC104EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
