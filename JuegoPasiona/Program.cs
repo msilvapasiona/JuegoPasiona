@@ -1,4 +1,4 @@
-﻿using Barajas;
+using Barajas;
 using Juego;
 using Jugadores;
 using Comprobaciones;
@@ -23,7 +23,7 @@ catch (Exception e)
 
 Console.WriteLine("-------------------------------POKER---------------------------------------");
 
-List<Jugador> listaJugadoresPoker = new List<Jugador>() { new Jugador("Manuel"), new Jugador("Maria"), new Jugador("Lole"), new Jugador("Pedro")};
+List<Jugador> listaJugadoresPoker = new List<Jugador>() { new Jugador("Manuel"), new Jugador("Maria")/*, new Jugador("Lole"), new Jugador("Pedro")*/};
 
 try
 {
@@ -37,4 +37,3 @@ catch (Exception e)
 {
     Console.WriteLine(e.Message);
 }
-
