@@ -24,9 +24,19 @@ namespace Barajas
             return -1;
         }
 
+        public override bool Equals(object? obj)
+        {
+            return obj is Carta carta && Palo == carta.Palo && Numero == carta.Numero;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Palo, Numero);
+        }
+
         public override string ToString()
         {
-            return  Numero + " de " + Palo;
+            return Numero + " de " + Palo;
         }
     }
 }
