@@ -36,7 +36,7 @@ namespace Juego
 
         public override void darCartas(List<Jugador> jugadores)
         {
-            Carta auxiliar = new Carta("picas",13);
+            Carta auxiliar = new Carta("picas",14);
             jugadores[0].cartas.Add(auxiliar);
             auxiliar = new Carta("picas", 12);
             jugadores[0].cartas.Add(auxiliar);
@@ -47,15 +47,12 @@ namespace Juego
             auxiliar = new Carta("picas", 10);
             jugadores[0].cartas.Add(auxiliar);
 
-            auxiliar = new Carta("picas", 9);
+            auxiliar = new Carta("picas", 7);
             jugadores[0].cartas.Add(auxiliar);
 
 
-            auxiliar = new Carta("picas", 14);
-            jugadores[1].cartas.Add(auxiliar);
             auxiliar = new Carta("picas", 13);
             jugadores[1].cartas.Add(auxiliar);
-
             auxiliar = new Carta("picas", 12);
             jugadores[1].cartas.Add(auxiliar);
 
@@ -63,6 +60,9 @@ namespace Juego
             jugadores[1].cartas.Add(auxiliar);
 
             auxiliar = new Carta("picas", 10);
+            jugadores[1].cartas.Add(auxiliar);
+
+            auxiliar = new Carta("picas", 2);
             jugadores[1].cartas.Add(auxiliar);
 
 

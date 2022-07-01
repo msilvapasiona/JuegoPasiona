@@ -11,7 +11,6 @@ namespace Comprobaciones
 {
     public class ComprobacionesPoker : IComprobacion
     {
-
         public string[] ganadores(List<Jugador> jugadores)
         {
 
@@ -21,9 +20,28 @@ namespace Comprobaciones
         private string Ganador(List<Jugador> jugadores)
         {
             List<Jugador> escaleraReal = jugadores.ToList();
-            (bool respuesta, string ganador) ganadorEscaleraReal = EscaleraReal(escaleraReal);
-            return ganadorEscaleraReal.ganador;
+            List<Jugador> escaleraColor = jugadores.ToList();
+            List<Jugador> poker = jugadores.ToList();
+            List<Jugador> full = jugadores.ToList();
+            List<Jugador> color = jugadores.ToList();
+            List<Jugador> escalera = jugadores.ToList();
+            List<Jugador> trio = jugadores.ToList();
+            List<Jugador> doblePareja = jugadores.ToList();
+            List<Jugador> pareja = jugadores.ToList();
+            List<Jugador> cartaAlta = jugadores.ToList();
+
+            (bool respuesta, string ganador)[] jugadas = new(bool, string)[] {EscaleraReal(escaleraReal), EscaleraColor(escaleraColor)};
+
+            foreach (var item in jugadas)
+            {
+                if (item.respuesta)
+                {
+                    return item.ganador;
+                }
+            }
+            return "Null Nadie tiene nada";
         }
+
 
         //EscaleraReal
         private (bool respuesta, string ganador) EscaleraReal(List<Jugador> jugadores)
@@ -53,11 +71,8 @@ namespace Comprobaciones
             {
                 return (true, jugadoresConEscaleraReal[0].Nombre);
             }
-            else
-            {
-                return DesempateEscaleraReal(jugadoresConEscaleraReal);
-            }
-            return (false, "Null");
+           
+            return jugadoresConEscaleraReal.Count>1 ? DesempatePorManoEscaleras(jugadoresConEscaleraReal) : (false,"Null");
         }
         private bool ComprobacionesEscaleraRealValida(List<Carta> referencia, List<Carta> jugadorCartas)
         {
@@ -70,7 +85,43 @@ namespace Comprobaciones
             }
             return true;
         }
-        private (bool respuesta, string ganador) DesempateEscaleraReal(List<Jugador> jugadores)
+
+        //EscaleraColor
+        private (bool respuesta, string ganador) EscaleraColor(List<Jugador> jugadores)
+        {
+            List<Jugador> jugadoresConColor = new List<Jugador>();
+            foreach (Jugador jugador in jugadores)
+            {
+                bool tieneColor = true;
+
+                string paloReferencia = jugador.cartas[0].Palo;
+
+                foreach (Carta carta in jugador.cartas)
+                {
+                    if (!(carta.Palo.Equals(paloReferencia)))
+                    {
+                        tieneColor = false;
+                    }
+                }
+
+                if (tieneColor == true)
+                {
+                    jugadoresConColor.Add(jugador);
+                }
+            }
+            if (jugadoresConColor.Count == 1)
+            {
+                return (true, jugadoresConColor[0].Nombre);
+            }
+            else
+            {
+                return DesempatePorManoEscaleras(jugadoresConColor);
+            }
+            return (false, "Null");
+        }
+
+        //Desempate Por Mano
+        private (bool respuesta, string ganador) DesempatePorManoEscaleras(List<Jugador> jugadores)
         {
             int max = -1;
 
@@ -92,6 +143,5 @@ namespace Comprobaciones
 
             return (false, "Null");
         }
-
     }
 }
