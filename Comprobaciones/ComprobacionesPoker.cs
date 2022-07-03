@@ -115,6 +115,91 @@ namespace Comprobaciones
             return true;
         }
 
+        //Poker
+        private (bool respuesta, string ganador) PokerF(List<Jugador> jugadores)
+        {
+            List<Jugador> jugadoresConPoker = new List<Jugador>();
+            int max = -1;
+            foreach (Jugador jugador in jugadores)
+            {
+                if (jugador.MaxPoker() > max)
+                {
+                    jugadoresConPoker.Add(jugador);
+                }
+            }
+
+            if (jugadoresConPoker.Count == 1)
+            {
+                return (true, jugadoresConPoker[0].Nombre);
+            }
+            return jugadoresConPoker.Count > 1 ? DesempatePoker(jugadoresConPoker) : (false, "Null");
+        }
+
+        //Full
+        private(bool respuesta, string nombre) Full(List<Jugador> jugadores)
+        {
+            List<Jugador> jugadoresConFull = new List<Jugador>();
+            foreach (Jugador jugador in jugadores)
+            {
+                if (jugador.Trio() != -1 && jugador.Pareja() != -1 && jugador.Trio() != jugador.Pareja())
+                {
+                    jugadoresConFull.Add(jugador);
+                }
+            }
+
+            if (jugadoresConFull.Count == 1)
+            {
+                return (true, jugadoresConFull[0].Nombre);
+            }
+            return jugadoresConFull.Count > 1 ? DesempatePoker(jugadoresConFull) : (false, "Null");
+
+            return (false, "Null");
+        }
+
+        private (bool respuesta, string ganador) DesempateFull(List<Jugador> jugadores)
+        {
+            List<int> valoresParejas = new List<int>();
+            List<Jugador> jugadoresConMaximo = new List<Jugador>();
+
+            foreach (Jugador jugador in jugadores)
+            {
+                    valoresParejas.Add(jugador.Trio());
+            }
+
+            foreach (Jugador jugador in jugadores)
+            {ñ
+                if (jugador.Trio() == valoresParejas.Max())
+                {
+                    jugadoresConMaximo.Add(jugador);
+                }
+            }
+
+            if (jugadoresConMaximo.Count == 1)
+            {
+                return (true, jugadoresConMaximo[0].Nombre);
+            }
+            else
+            {
+                int maximo = valoresParejas.Max();
+                valoresParejas.Clear();
+                jugadoresConMaximo.Clear();
+
+                foreach (Jugador jugador in jugadores)
+                {
+                    valoresParejas.Add(jugador.Trio());
+                }
+
+                foreach (Jugador jugador in jugadores)
+                {
+                    if (jugador.Trio() == valoresParejas.Max())
+                    {
+                        jugadoresConMaximo.Add(jugador);
+                    }
+                }
+
+            }
+
+        }
         //Color
         private (bool respuesta, string ganador) Color(List<Jugador> jugadores)
         {
@@ -145,26 +230,15 @@ namespace Comprobaciones
             return jugadoresConColor.Count > 1 ? DesempatePorManoEscaleras(jugadoresConColor) : (false, "Null");
         }
 
-        //Poker
-        private (bool respuesta, string ganador) PokerF(List<Jugador> jugadores)
-        {
-            List<Jugador> jugadoresConPoker = new List<Jugador>();
-            int max = -1;
-            foreach (Jugador jugador in jugadores)
-            {
-                if (jugador.MaxPoker() > max)
-                {
-                    jugadoresConPoker.Add(jugador);
-                }
-            }
+        //Escalera
 
-            if (jugadoresConPoker.Count == 1)
-            {
-                return(true, jugadoresConPoker[0].Nombre);
-            }
-            return jugadoresConPoker.Count > 1 ? DesempatePoker(jugadoresConPoker) : (false, "Null");
-        }
+        //Trio
 
+        //DoblePareja
+
+        //Pareja
+
+        //CartaAlta
 
         //Desempates
         private (bool respuesta, string ganador) DesempatePorManoEscaleras(List<Jugador> jugadores)

@@ -29,5 +29,46 @@ namespace Extensiones
             }
             return -1;
         }
+
+        public static int Trio(this Jugador jugador)
+        {
+            foreach (Carta cartax in jugador.cartas)
+            {
+                int contador = 1;
+                foreach (Carta cartay in jugador.cartas)
+                {
+                    if (cartax.Numero == cartay.Numero && !cartax.Palo.Equals(cartay.Palo))
+                    {
+                        contador++;
+                    }
+                }
+                if (contador == 3)
+                {
+                    return cartax.Numero;
+                }
+            }
+            return -1;
+        }
+
+        public static int Pareja(this Jugador jugador)
+        {
+            foreach (Carta cartax in jugador.cartas)
+            {
+                int contador = 1;
+                foreach (Carta cartay in jugador.cartas)
+                {
+                    if (cartax.Numero == cartay.Numero && !cartax.Palo.Equals(cartay.Palo))
+                    {
+                        contador++;
+                    }
+                }
+                if (contador == 2)
+                {
+                    return cartax.Numero;
+                }
+            }
+            return -1;
+        }
     }
 }
+
