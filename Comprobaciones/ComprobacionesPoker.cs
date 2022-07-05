@@ -44,12 +44,12 @@ namespace Comprobaciones
                 List<Carta> escaleraReferencia = new List<Carta>();
                 string paloReferencia = jugador.cartas[0].Palo;
 
-                for (int i = 14; i == 10; i--)
+                for (int i = 14; i >= 10; i--)
                 {
                     escaleraReferencia.Add(new Carta(paloReferencia, i));
                 }
 
-                if (ComprobacionEscalerasIguales(escaleraReferencia, jugador.cartas))
+                if (escaleraReferencia.SequenceEqual(jugador.cartas))
                 {
                     jugadoresConEscaleraReal.Add(jugador);
                 }
@@ -58,16 +58,20 @@ namespace Comprobaciones
 
             if (jugadoresConEscaleraReal.Count == 1)
             {
-                return (true, jugadoresConEscaleraReal[0].Nombre);
+                return (true, jugadoresConEscaleraReal[0].Nombre +", con escalera Real.");
             }
-
-            return jugadoresConEscaleraReal.Count > 1 ? DesempatePorManoEscaleras(jugadoresConEscaleraReal) : (false, "Null");
+            else if (jugadoresConEscaleraReal.Count > 1)
+            {
+                (bool respuesta, string ganador) desempateGanador = DesempatePorManoEscaleras(jugadoresConEscaleraReal);
+                return (desempateGanador.respuesta, desempateGanador.ganador + ", con escalera Real.");
+            }
+            return (false, "Null");
         }
 
         //EscaleraColor
         private (bool respuesta, string ganador) EscaleraColor(List<Jugador> jugadores)
         {
-            List<Jugador> jugadoresConEscaleraReal = new List<Jugador>();
+            List<Jugador> jugadoresConEscaleraColor = new List<Jugador>();
             foreach (Jugador jugador in jugadores)
             {
                 List<Carta> escaleraReferencia = new List<Carta>();
@@ -75,36 +79,29 @@ namespace Comprobaciones
 
                 int valorReferencia = jugador.cartas[0].Numero;
 
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 5; i++, valorReferencia--)
                 {
                     escaleraReferencia.Add(new Carta(paloReferencia, valorReferencia));
-                    valorReferencia--;
                 }
 
-                if (ComprobacionEscalerasIguales(escaleraReferencia, jugador.cartas))
+                if (escaleraReferencia.SequenceEqual(jugador.cartas))
                 {
-                    jugadoresConEscaleraReal.Add(jugador);
+                    jugadoresConEscaleraColor.Add(jugador);
                 }
                    
             }
 
-            if (jugadoresConEscaleraReal.Count == 1)
+
+            if (jugadoresConEscaleraColor.Count == 1)
             {
-                return (true, jugadoresConEscaleraReal[0].Nombre);
+                return (true, jugadoresConEscaleraColor[0].Nombre + ", con escalera de color.");
             }
-           
-            return jugadoresConEscaleraReal.Count>1 ? DesempatePorManoEscaleras(jugadoresConEscaleraReal) : (false,"Null");
-        }
-        private bool ComprobacionEscalerasIguales(List<Carta> referencia, List<Carta> jugadorCartas)
-        {
-            for (int i = 0; i < referencia.Count; i++)
+            else if (jugadoresConEscaleraColor.Count > 1)
             {
-                if ( !(referencia[i].Equals(jugadorCartas[i])) )
-                {
-                    return false;
-                }
+                (bool respuesta, string ganador) desempateGanador = DesempatePorManoEscaleras(jugadoresConEscaleraColor);
+                return (desempateGanador.respuesta, desempateGanador.ganador + ", con escalera de color.");
             }
-            return true;
+            return (false, "Null");
         }
 
         //Poker
@@ -122,7 +119,7 @@ namespace Comprobaciones
 
             if (jugadoresConPoker.Count == 1)
             {
-                return (true, jugadoresConPoker[0].Nombre);
+                return (true, jugadoresConPoker[0].Nombre + "con Poker.");
             }
             return jugadoresConPoker.Count > 1 ? DesempatePoker(jugadoresConPoker) : (false, "Null");
         }
@@ -178,8 +175,39 @@ namespace Comprobaciones
 
         //Escalera
 
-        //Trio
+        private (bool respuesta, string ganador) Escalera(List<Jugador> jugadores)
+        {
+            List<Jugador> jugadoresConEscaleraReal = new List<Jugador>();
+            foreach (Jugador jugador in jugadores)
+            {
+                List<Carta> escaleraReferencia = new List<Carta>();
+                int valorReferencia = jugador.cartas[0].Numero;
 
+                for (int i = 0; i < 5; i++, valorReferencia--)
+                {
+                    escaleraReferencia.Add(new Carta(jugador.cartas[i].Palo, valorReferencia));
+                }
+
+                if (escaleraReferencia.SequenceEqual(jugador.cartas))
+                {
+                    jugadoresConEscaleraReal.Add(jugador);
+                }
+
+            }
+
+            if (jugadoresConEscaleraReal.Count == 1)
+            {
+                return (true, jugadoresConEscaleraReal[0].Nombre);
+            }
+
+            return jugadoresConEscaleraReal.Count > 1 ? DesempatePorManoEscaleras(jugadoresConEscaleraReal) : (false, "Null");
+        }
+
+        //Trio
+        private(bool respuesta, string ganador) Trio(List<Jugador> jugadores)
+        {
+            return (false, "Null");
+        }
         //DoblePareja
 
         //Pareja
