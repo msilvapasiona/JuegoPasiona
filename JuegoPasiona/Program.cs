@@ -4,9 +4,12 @@ using Jugadores;
 using Comprobaciones;
 using HistorialPartidas;
 
+
 int contador = 1;
 HistorialDAO partidasJugadas = new HistorialDAO();
 Historial historial = new Historial();
+
+
 
 Console.WriteLine("-------------------------------MUS---------------------------------------");
 
@@ -22,12 +25,16 @@ try
 
     historial = new Historial(contador, juego.ComprobarGanadores(), juego.GetType().Name+".", listaJugadoresMus.Count);
     partidasJugadas.GuardarPartida(historial);
+    contador++;
 }
 catch (Exception e)
 {
     Console.WriteLine(e.Message);
 }
-contador++;
+
+
+
+
 
 Console.WriteLine("-------------------------------POKER---------------------------------------");
 
@@ -43,12 +50,15 @@ try
 
     historial = new Historial(contador, juego.ComprobarGanadores(), juego.GetType().Name+".",listaJugadoresPoker.Count);
     partidasJugadas.GuardarPartida(historial);
+    contador++;
 }
 catch (Exception e)
 {
     Console.WriteLine(e.Message);
 }
-contador++;
+
+
+
 
 Console.WriteLine();
 Console.WriteLine("-------------------------------Historial Partidas---------------------------------------");
