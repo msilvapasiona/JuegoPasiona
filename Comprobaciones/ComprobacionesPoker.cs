@@ -39,7 +39,7 @@ namespace Comprobaciones
                     return item.ganador;
                 }
             }
-            return auxiliar.GanadorCartaAlta();
+            return auxiliar.GanadorCartaAlta() + ", gana por Carta Alta.";
         }
     }
 }
