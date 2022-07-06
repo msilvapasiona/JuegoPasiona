@@ -419,6 +419,10 @@ namespace ExtensionesPoker
                     ganadoresParejas.Add(jugador);
                 }
             }
+            if (ganadoresParejas.Count == 1)
+            {
+                return (true, ganadoresParejas[0].Nombre + ", gana con Doble Pareja.");
+            }
             ParejasJugadas.Clear();
 
             foreach (Jugador jugador in jugadores)

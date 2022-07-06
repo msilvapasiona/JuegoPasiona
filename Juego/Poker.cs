@@ -36,7 +36,37 @@ namespace Juego
 
         public override void darCartas(List<Jugador> jugadores)
         {
-             foreach (Jugador jugador in jugadores)
+            //Carta auxiliar = new Carta("picas", 10);
+            //jugadores[0].cartas.Add(auxiliar);
+            //auxiliar = new Carta("picas", 9);
+            //jugadores[0].cartas.Add(auxiliar);
+
+            //auxiliar = new Carta("diamantes", 9);
+            //jugadores[0].cartas.Add(auxiliar);
+
+            //auxiliar = new Carta("diamantes", 2);
+            //jugadores[0].cartas.Add(auxiliar);
+
+            //auxiliar = new Carta("corazones", 2);
+            //jugadores[0].cartas.Add(auxiliar);
+
+
+            //auxiliar = new Carta("treboles", 14);
+            //jugadores[1].cartas.Add(auxiliar);
+
+            //auxiliar = new Carta("corazones", 7);
+            //jugadores[1].cartas.Add(auxiliar);
+
+            //auxiliar = new Carta("diamantes", 7);
+            //jugadores[1].cartas.Add(auxiliar);
+
+            //auxiliar = new Carta("diamantes", 6);
+            //jugadores[1].cartas.Add(auxiliar);
+
+            //auxiliar = new Carta("treboles", 6);
+            //jugadores[1].cartas.Add(auxiliar);
+
+            foreach (Jugador jugador in jugadores)
              {
                  int limite = contador + 5;
                  jugador.cartas = new List<Carta>();
