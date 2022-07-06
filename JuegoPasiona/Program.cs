@@ -14,13 +14,13 @@ List<Jugador> listaJugadoresMus = new List<Jugador>() { new Jugador("Manuel"), n
 
 try
 {
-    Mus mus = new Mus(listaJugadoresMus);
+    Mus juego = new Mus(listaJugadoresMus);
 
-    mus.MostrarCartasJugadores();
+    juego.MostrarCartasJugadores();
 
-    Console.WriteLine(String.Join("\n", mus.ComprobarGanadores()));
+    Console.WriteLine(String.Join("\n", juego.ComprobarGanadores()));
 
-    historial = new Historial(contador, mus.ComprobarGanadores(),"Mus.", listaJugadoresMus.Count);
+    historial = new Historial(contador, juego.ComprobarGanadores(), juego.GetType().Name+".", listaJugadoresMus.Count);
     partidasJugadas.GuardarPartida(historial);
 }
 catch (Exception e)
@@ -35,13 +35,13 @@ List<Jugador> listaJugadoresPoker = new List<Jugador>() { new Jugador("Manuel"),
 
 try
 {
-    Poker poker = new Poker(listaJugadoresPoker);
+    Poker juego = new Poker(listaJugadoresPoker);
 
-    poker.MostrarCartasJugadores();
+    juego.MostrarCartasJugadores();
 
-    Console.WriteLine(String.Join("\n", poker.ComprobarGanadores()));
+    Console.WriteLine(String.Join("\n", juego.ComprobarGanadores()));
 
-    historial = new Historial(contador, poker.ComprobarGanadores(), "Poker.",listaJugadoresPoker.Count);
+    historial = new Historial(contador, juego.ComprobarGanadores(), juego.GetType().Name+".",listaJugadoresPoker.Count);
     partidasJugadas.GuardarPartida(historial);
 }
 catch (Exception e)
