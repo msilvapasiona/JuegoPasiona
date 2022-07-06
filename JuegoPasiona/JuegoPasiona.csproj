@@ -10,6 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Barajas\Barajas.csproj" />
     <ProjectReference Include="..\Comprobaciones\Comprobaciones.csproj" />
+    <ProjectReference Include="..\HistorialPartidas\HistorialPartidas.csproj" />
     <ProjectReference Include="..\Juego\Juego.csproj" />
     <ProjectReference Include="..\Jugadores\Jugadores.csproj" />
   </ItemGroup>

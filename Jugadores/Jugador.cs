@@ -23,5 +23,17 @@ namespace Jugadores
         {
             return cartas;
         }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Jugador jugador &&
+                   Nombre == jugador.Nombre &&
+                   EqualityComparer<List<Carta>>.Default.Equals(cartas, jugador.cartas);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Nombre, cartas);
+        }
     }
 }

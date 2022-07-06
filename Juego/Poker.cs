@@ -36,37 +36,7 @@ namespace Juego
 
         public override void darCartas(List<Jugador> jugadores)
         {
-            Carta auxiliar = new Carta("corazones",14);
-            jugadores[0].cartas.Add(auxiliar);
-            auxiliar = new Carta("picas", 14);
-            jugadores[0].cartas.Add(auxiliar);
-
-            auxiliar = new Carta("diamantes", 14);
-            jugadores[0].cartas.Add(auxiliar);
-
-            auxiliar = new Carta("treboles", 14);
-            jugadores[0].cartas.Add(auxiliar);
-
-            auxiliar = new Carta("picas", 7);
-            jugadores[0].cartas.Add(auxiliar);
-
-
-            auxiliar = new Carta("corazones", 14);
-            jugadores[1].cartas.Add(auxiliar);
-            auxiliar = new Carta("picas", 13);
-            jugadores[1].cartas.Add(auxiliar);
-
-            auxiliar = new Carta("diamantes", 14);
-            jugadores[1].cartas.Add(auxiliar);
-
-            auxiliar = new Carta("treboles", 14);
-            jugadores[1].cartas.Add(auxiliar);
-
-            auxiliar = new Carta("picas", 2);
-            jugadores[1].cartas.Add(auxiliar);
-
-
-            /* foreach (Jugador jugador in jugadores)
+             foreach (Jugador jugador in jugadores)
              {
                  int limite = contador + 5;
                  jugador.cartas = new List<Carta>();
@@ -76,7 +46,7 @@ namespace Juego
                  }
                  jugador.cartas.Sort();
                  jugador.cartas.Reverse();
-             }*/
+             }
         }
 
         public override void MostrarCartasJugadores()
@@ -99,15 +69,15 @@ namespace Juego
 
         public static void ValoresNumeros()
         {
-            numeros.Add(2, "Dos");
-            numeros.Add(3, "Tres");
-            numeros.Add(4, "Cuatro");
-            numeros.Add(5, "Cinco");
-            numeros.Add(6, "Seis");
-            numeros.Add(7, "Siete");
-            numeros.Add(8, "Ocho");
-            numeros.Add(9, "Nueve");
-            numeros.Add(10, "Diez");
+            numeros.Add(2, "2");
+            numeros.Add(3, "3");
+            numeros.Add(4, "4");
+            numeros.Add(5, "5");
+            numeros.Add(6, "6");
+            numeros.Add(7, "7");
+            numeros.Add(8, "8");
+            numeros.Add(9, "9");
+            numeros.Add(10, "10");
             numeros.Add(11, "J");
             numeros.Add(12, "Q");
             numeros.Add(13, "K");

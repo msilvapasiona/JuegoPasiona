@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Juego", "Juego\Juego.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jugadores", "Jugadores\Jugadores.csproj", "{30619CB4-7EF8-4CC9-9FB3-0FD6B853A956}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensiones", "Extensiones\Extensiones.csproj", "{D0A8721D-6705-4E42-AB23-40EF7EC104EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extensiones", "Extensiones\Extensiones.csproj", "{D0A8721D-6705-4E42-AB23-40EF7EC104EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HistorialPartidas", "HistorialPartidas\HistorialPartidas.csproj", "{2F034509-F533-4C19-BFAD-6FFAA31FDA44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{D0A8721D-6705-4E42-AB23-40EF7EC104EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0A8721D-6705-4E42-AB23-40EF7EC104EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0A8721D-6705-4E42-AB23-40EF7EC104EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F034509-F533-4C19-BFAD-6FFAA31FDA44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F034509-F533-4C19-BFAD-6FFAA31FDA44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F034509-F533-4C19-BFAD-6FFAA31FDA44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F034509-F533-4C19-BFAD-6FFAA31FDA44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
