@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Barajas;
 using ExtensionesPoker;
 
-// https://www.888poker.es/blog/poker-de-ases Pagina para visualizar comprobaciones de poker.
 namespace Comprobaciones
 {
     public class ComprobacionesPoker : IComprobacion

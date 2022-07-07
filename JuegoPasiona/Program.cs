@@ -60,6 +60,6 @@ catch (Exception e)
 
 
 
-Console.WriteLine();
+
 Console.WriteLine("-------------------------------Historial Partidas---------------------------------------");
 Console.WriteLine(partidasJugadas);

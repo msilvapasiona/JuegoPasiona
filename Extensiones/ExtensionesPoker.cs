@@ -41,7 +41,6 @@ namespace ExtensionesPoker
             }
             return (false, "Null");
         }
-
         //EscaleraColor
         public static (bool respuesta, string ganador) GanadorEscaleraColor(this List<Jugador> jugadores)
         {
@@ -77,7 +76,6 @@ namespace ExtensionesPoker
             }
             return (false, "Null");
         }
-
         //Poker
         public static (bool respuesta, string ganador) GanadorPoker(this List<Jugador> jugadores)
         {
@@ -97,7 +95,6 @@ namespace ExtensionesPoker
             }
             return jugadoresConPoker.Count > 1 ? DesempatePoker(jugadoresConPoker) : (false, "Null");
         }
-
         //Full
         public static (bool respuesta, string nombre) GanadorFull(this List<Jugador> jugadores)
         {
@@ -121,7 +118,6 @@ namespace ExtensionesPoker
             }
             return (false, "Null");
         }
-
         //Color
         public static (bool respuesta, string ganador) GanadorColor(this List<Jugador> jugadores)
         {
@@ -156,9 +152,7 @@ namespace ExtensionesPoker
             }
             return (false, "Null");
         }
-
         //Escalera
-
         public static (bool respuesta, string ganador) GanadorEscalera(this List<Jugador> jugadores)
         {
             List<Jugador> jugadoresConEscaleraReal = new List<Jugador>();
@@ -190,7 +184,6 @@ namespace ExtensionesPoker
             }
             return (false, "Null");
         }
-
         //Trio
         public static (bool respuesta, string ganador) GanadorTrio(this List<Jugador> jugadores)
         {
@@ -214,7 +207,6 @@ namespace ExtensionesPoker
             }
             return (false, "Null");
         }
-
         //Doble Pareja
         public static (bool respuesta, string ganador) GanadorDoblePareja(this List<Jugador> jugadores)
         {
@@ -232,7 +224,6 @@ namespace ExtensionesPoker
             }
             return jugadoresConDoblePareja.Count > 1 ? DesempateDoblePareja(jugadoresConDoblePareja) : (false, "Null");
         }
-
         //Pareja
         public static (bool respuesta, string ganador) GanadorPareja(this List<Jugador> jugadores)
         {
@@ -250,7 +241,6 @@ namespace ExtensionesPoker
             }
             return jugadoresConPareja.Count > 1 ? DesempatePareja(jugadoresConPareja) : (false, "Null");
         }
-
         //CartaAlta
         public static string GanadorCartaAlta(this List<Jugador> jugadores)
         {
@@ -338,7 +328,6 @@ namespace ExtensionesPoker
 
             return (false, "Null");
         }
-
         private static (bool respuesta, string ganador) DesempatePoker(List<Jugador> jugadores)
         {
             int max = -1;
@@ -359,7 +348,6 @@ namespace ExtensionesPoker
             }
             return (false, "Null");
         }
-
         private static (bool respuesta, string ganador) DesempateFullyTrio(List<Jugador> jugadores)
         {
             List<int> valoresParejas = new List<int>();
@@ -380,7 +368,6 @@ namespace ExtensionesPoker
             return (false, "Null");
 
         }
-
         private static (bool respuesta, string ganador) DesempatePareja(List<Jugador> jugadores)
         {
             List<int> valoresParejas = new List<int>();
@@ -398,7 +385,6 @@ namespace ExtensionesPoker
             }
             return (false, "Null");
         }
-
         private static (bool respuesta, string ganador) DesempateDoblePareja(List<Jugador> jugadores)
         {
             List<int> ParejasJugadas = new List<int>();
@@ -423,6 +409,7 @@ namespace ExtensionesPoker
             {
                 return (true, ganadoresParejas[0].Nombre + ", gana con Doble Pareja.");
             }
+            int primeraPareja = ParejasJugadas.Max();
             ParejasJugadas.Clear();
 
             foreach (Jugador jugador in jugadores)
@@ -435,7 +422,7 @@ namespace ExtensionesPoker
 
             foreach (Jugador jugador in jugadores)
             {
-                if (jugador.SegundaPareja(jugador.Pareja()) == ParejasJugadas.Max())
+                if (jugador.SegundaPareja(jugador.Pareja()) == ParejasJugadas.Max() && jugador.Pareja() == primeraPareja)
                 {
                     return (true, jugador.Nombre + ", gana con Doble Pareja.");
                 }
@@ -463,7 +450,6 @@ namespace ExtensionesPoker
             }
             return -1;
         }
-
         public static int Trio(this Jugador jugador)
         {
             foreach (Carta cartax in jugador.cartas)
@@ -483,7 +469,6 @@ namespace ExtensionesPoker
             }
             return -1;
         }
-
         public static int Pareja(this Jugador jugador)
         {
             foreach (Carta cartax in jugador.cartas)
@@ -503,7 +488,6 @@ namespace ExtensionesPoker
             }
             return -1;
         }
-
         public static int SegundaPareja(this Jugador jugador, int distinto)
         {
             foreach (Carta cartax in jugador.cartas)
