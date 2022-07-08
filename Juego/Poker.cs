@@ -26,7 +26,7 @@ namespace Juego
             }
             baraja = new Baraja(new BarajaFrancesa());
             jugadores = jugadoresParam;
-            repartirCartas(jugadores);
+            RepartirCartas(jugadores);
         }
 
         public override string[] ComprobarGanadores()
@@ -35,7 +35,7 @@ namespace Juego
             return poker.ganadores(jugadores);
         }
 
-        public override void repartirCartas(List<Jugador> jugadores)
+        public override void RepartirCartas(List<Jugador> jugadores)
         {
             foreach (Jugador jugador in jugadores)
             {

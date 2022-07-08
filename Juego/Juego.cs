@@ -16,7 +16,7 @@ namespace Juego
         {
         }
 
-        public abstract void repartirCartas(List<Jugador> jugadores);
+        public abstract void RepartirCartas(List<Jugador> jugadores);
         public abstract string[] ComprobarGanadores();
         public abstract void MostrarCartasJugadores();
     }
