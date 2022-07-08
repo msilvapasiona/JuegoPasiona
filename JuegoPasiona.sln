@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JuegoPasiona", "JuegoPasiona\JuegoPasiona.csproj", "{310E6497-6B9A-4B79-98D7-C74CC73EF9FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Main", "JuegoPasiona\Main.csproj", "{310E6497-6B9A-4B79-98D7-C74CC73EF9FA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Barajas", "Barajas\Barajas.csproj", "{222504FB-37C5-4BDE-9158-E6A5D6F0DF5F}"
 EndProject
@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jugadores", "Jugadores\Juga
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extensiones", "Extensiones\Extensiones.csproj", "{D0A8721D-6705-4E42-AB23-40EF7EC104EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HistorialPartidas", "HistorialPartidas\HistorialPartidas.csproj", "{2F034509-F533-4C19-BFAD-6FFAA31FDA44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HistorialPartidas", "HistorialPartidas\HistorialPartidas.csproj", "{2F034509-F533-4C19-BFAD-6FFAA31FDA44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

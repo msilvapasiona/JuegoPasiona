@@ -10,20 +10,19 @@ HistorialDAO partidasJugadas = new HistorialDAO();
 Historial historial = new Historial();
 
 
-
 Console.WriteLine("-------------------------------MUS---------------------------------------");
 
-List<Jugador> listaJugadoresMus = new List<Jugador>() { new Jugador("Manuel"), new Jugador("Maria"), new Jugador("Lole"), new Jugador("Pedro")};
+List<Jugador> listaJugadores = new List<Jugador>() { new Jugador("Manuel"), new Jugador("Maria"), new Jugador("Lole"), new Jugador("Pedro")};
 
 try
 {
-    Mus juego = new Mus(listaJugadoresMus);
+    Mus juego = new Mus(listaJugadores);
 
     juego.MostrarCartasJugadores();
 
     Console.WriteLine(String.Join("\n", juego.ComprobarGanadores()));
 
-    historial = new Historial(contador, juego.ComprobarGanadores(), juego.GetType().Name+".", listaJugadoresMus.Count);
+    historial = new Historial(contador, juego.ComprobarGanadores(), juego.GetType().Name+".", listaJugadores.Count);
     partidasJugadas.GuardarPartida(historial);
     contador++;
 }
@@ -38,17 +37,15 @@ catch (Exception e)
 
 Console.WriteLine("-------------------------------POKER---------------------------------------");
 
-List<Jugador> listaJugadoresPoker = new List<Jugador>() { new Jugador("Manuel"), new Jugador("Maria"), new Jugador("Lole"), new Jugador("Pedro")};
-
 try
 {
-    Poker juego = new Poker(listaJugadoresPoker);
+    Poker juego = new Poker(listaJugadores);
 
     juego.MostrarCartasJugadores();
 
     Console.WriteLine(String.Join("\n", juego.ComprobarGanadores()));
 
-    historial = new Historial(contador, juego.ComprobarGanadores(), juego.GetType().Name+".",listaJugadoresPoker.Count);
+    historial = new Historial(contador, juego.ComprobarGanadores(), juego.GetType().Name+".",listaJugadores.Count);
     partidasJugadas.GuardarPartida(historial);
     contador++;
 }

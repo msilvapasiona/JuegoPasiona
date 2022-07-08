@@ -14,7 +14,7 @@ namespace Juego
     {
         static int jugadoresMinimos = 2;
         static int jugadoresMaximo = 10;
-        static int contador = 0;
+        int contador = 0;
         public static IDictionary<int, string> numeros = new Dictionary<int, string>();
         
         public Poker(List<Jugador> jugadoresParam) : base(jugadoresParam) 

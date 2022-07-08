@@ -20,10 +20,10 @@ namespace Comprobaciones
 
             List<Jugador> pares = new List<Jugador>(jugadores);
 
-            return new string[] {$"Ganador Carta Alta:{   cartaAlta.GanadorCartaAlta()   }", 
-                                 $"Ganador Carta Baja:{   cartaBaja.GanadorCartaBaja()   }", 
-                                 $"Ganador Juego: {        juego.GanadorJuego()           }", 
-                                 $"Ganador Parejas: {      pares.GanadorParejas()         }"}; 
+            return new string[] {$"Ganador Carta Alta:{   cartaAlta.GanadorCartaAlta()    }", 
+                                 $"Ganador Carta Baja:{   cartaBaja.GanadorCartaBaja()    }", 
+                                 $"Ganador Juego:     {     juego.GanadorJuego()          }", 
+                                 $"Ganador Parejas:   {      pares.GanadorParejas()       }"}; 
         }
     }
 }

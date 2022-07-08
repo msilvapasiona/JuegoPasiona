@@ -13,7 +13,8 @@ namespace Juego
     public class Mus : Juego
     {
         int jugadoresPermitidos = 4;
-        static int contador = 0;
+        
+        int contador = 0;
         public Mus(List<Jugador> jugadoresParam) : base(jugadoresParam)
         {
             if (jugadoresParam.Count != jugadoresPermitidos)
