@@ -1,4 +1,4 @@
-﻿ 
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +13,9 @@ namespace Juego
     public class Mus : Juego
     {
         int jugadoresPermitidos = 4;
-        
-        int contador = 0;
+        int numeroDeCartasPorJugador = 4;
+
+        public static IDictionary<int, string> numeros = new Dictionary<int, string>();
         public Mus(List<Jugador> jugadoresParam) : base(jugadoresParam)
         {
             if (jugadoresParam.Count != jugadoresPermitidos)
@@ -24,7 +25,7 @@ namespace Juego
             }
             baraja = new Baraja(new BarajaEspañola());
             jugadores = jugadoresParam;
-            darCartas(jugadores);
+            repartirCartas(jugadores);
         }
 
         public override string[] ComprobarGanadores()
@@ -33,23 +34,17 @@ namespace Juego
             return comprobaciones.ganadores(jugadores);
         }
 
-        public override void darCartas(List<Jugador> jugadores)
+        public override void repartirCartas(List<Jugador> jugadores)
         {
             foreach (Jugador jugador in jugadores)
             {
-                int limite = contador + 4;
-                jugador.cartas = new List<Carta>();
-                for (contador = contador; contador < limite; contador++)
-                {
-                    jugador.cartas.Add(baraja.listaCartas[contador]);
-                }
-                jugador.cartas.Sort();
-                jugador.cartas.Reverse();
+                jugador.cartas = baraja.DarCarta(numeroDeCartasPorJugador);
             }
         }
 
         public override void MostrarCartasJugadores()
         {
+            ValoresNumeros();
             Console.WriteLine();
             foreach (Jugador jugador in jugadores)
             {
@@ -58,11 +53,26 @@ namespace Juego
                 foreach (Carta carta in jugador.cartas)
                 {
                     puntos += carta.Numero;
-                    Console.WriteLine(carta);
+                    string valor = "";
+                    numeros.TryGetValue(carta.Numero, out valor!);
+                    Console.WriteLine($"{valor} de {carta.Palo}");
                 }
                 Console.WriteLine($"Puntos Totales = {puntos}");
                 Console.WriteLine();
-            }
+            };
+        }
+        public static void ValoresNumeros()
+        {
+            numeros.Add(1, "1");
+            numeros.Add(2, "2");
+            numeros.Add(3, "3");
+            numeros.Add(4, "4");
+            numeros.Add(5, "5");
+            numeros.Add(6, "6");
+            numeros.Add(7, "7");
+            numeros.Add(10, "Sota");
+            numeros.Add(11, "Caballo");
+            numeros.Add(12, "Rey");
         }
     }
 }

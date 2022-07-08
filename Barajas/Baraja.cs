@@ -39,6 +39,16 @@ namespace Barajas
             }
         }
 
+        public List<Carta> DarCarta(int cartasPorJugador)
+        {
+            List<Carta> cartasJugador = new List<Carta>();
+            while (cartasJugador.Count != cartasPorJugador)
+            {
+                cartasJugador.Add(listaCartas[0]);
+                listaCartas.RemoveAt(0);
+            }
+            return cartasJugador.OrderByDescending(x => x.Numero).ToList();
+        }
         public string MostrarCartas()
         {
             return String.Join("\n", listaCartas);

@@ -11,5 +11,6 @@ namespace Barajas
         public void CrearBaraja(string[]palos, int[] numeros);
         public void Barajar();
         public string MostrarCartas();
+        public List<Carta> DarCarta(int numeroDeCartasPorJugador);
     }
 }

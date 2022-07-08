@@ -17,7 +17,7 @@ namespace ExtensionesMus
 
                 if (cartaAltaObtenida.respuesta) return cartaAltaObtenida.ganador;
 
-                if (i == jugadores[0].cartas.Count)
+                if (i == jugadores[0].cartas.Count - 1)
                 {
                     (bool respuesta, string ganador) ganador = GanadorPorMano(jugadores, i, 0);
                     if (ganador.respuesta) return ganador.ganador;
@@ -178,7 +178,10 @@ namespace ExtensionesMus
             for (int i = 0; i < puntosJugadores.Length; i++)
             {
                 int puntosActuales = puntosJugadores[i];
-                puntosJugadores[i] = 30 - puntosActuales;
+                if (puntosActuales <= 30)
+                {
+                    puntosJugadores[i] = 30 - puntosActuales;
+                }
             }
 
             int min = puntosJugadores[0];

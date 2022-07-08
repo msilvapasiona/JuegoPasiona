@@ -14,10 +14,11 @@ namespace Juego
     {
         static int jugadoresMinimos = 2;
         static int jugadoresMaximo = 10;
-        int contador = 0;
+        int numeroDeCartasPorJugador = 5;
+
         public static IDictionary<int, string> numeros = new Dictionary<int, string>();
-        
-        public Poker(List<Jugador> jugadoresParam) : base(jugadoresParam) 
+
+        public Poker(List<Jugador> jugadoresParam) : base(jugadoresParam)
         {
             if (jugadoresParam.Count < jugadoresMinimos || jugadoresParam.Count > jugadoresMaximo)
             {
@@ -25,7 +26,7 @@ namespace Juego
             }
             baraja = new Baraja(new BarajaFrancesa());
             jugadores = jugadoresParam;
-            darCartas(jugadores);
+            repartirCartas(jugadores);
         }
 
         public override string[] ComprobarGanadores()
@@ -34,19 +35,12 @@ namespace Juego
             return poker.ganadores(jugadores);
         }
 
-        public override void darCartas(List<Jugador> jugadores)
+        public override void repartirCartas(List<Jugador> jugadores)
         {
             foreach (Jugador jugador in jugadores)
-             {
-                 int limite = contador + 5;
-                 jugador.cartas = new List<Carta>();
-                 for (contador = contador; contador < limite; contador++)
-                 {
-                     jugador.cartas.Add(baraja.listaCartas[contador]);
-                 }
-                 jugador.cartas.Sort();
-                 jugador.cartas.Reverse();
-             }
+            {
+                jugador.cartas = baraja.DarCarta(numeroDeCartasPorJugador);
+            }
         }
 
         public override void MostrarCartasJugadores()
@@ -55,7 +49,6 @@ namespace Juego
             Console.WriteLine();
             foreach (Jugador jugador in jugadores)
             {
-                int puntos = 0;
                 Console.WriteLine("Jugador: " + jugador.Nombre);
                 foreach (Carta carta in jugador.cartas)
                 {
