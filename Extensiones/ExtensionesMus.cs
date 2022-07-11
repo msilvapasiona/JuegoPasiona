@@ -172,7 +172,7 @@ namespace ExtensionesMus
         {
             foreach (int puntos in puntosJugadores)
             {
-                if ((puntos > 30 && puntos != 38 && puntos != 39 && puntos <= 40))
+                if ((puntos > 30 && puntos != 38 && puntos != 39))
                 {
                     return false;
                 }
