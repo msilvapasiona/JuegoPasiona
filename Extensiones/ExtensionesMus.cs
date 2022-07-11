@@ -157,7 +157,13 @@ namespace ExtensionesMus
             {
                 foreach (Carta carta in jugadores[i].cartas)
                 {
-                    puntosJugadores[i] += carta.Numero;
+                    if (carta.Numero >=10)
+                    {
+                        puntosJugadores[i] += 10;
+                    }else
+                    {
+                        puntosJugadores[i] += carta.Numero;
+                    }
                 }
             }
             return puntosJugadores;
